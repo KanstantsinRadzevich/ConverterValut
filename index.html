@@ -1,47 +1,55 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width">
-        <title>repl.it</title>
-        <script src="script.js"></script>
-        <link href="index.css" rel="stylesheet" type="text/css" />
-    </head>
-    <body>
-        <table>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <script src="script.js"></script>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <h1 class="header">Конвертер валют</h1>
+    <table>
+        <div class="input">
+            <label for="enter date">Выберите курс НБ РБ на дату:</label>
+            <input type="date" id="date" name="enter date">
+            <div id="curBYN">Курс рубля BYN:</div>
+        </div>
         <tr>
             <td> Сумма к переводу <input id="firstinput" onkeyup="convert('C');"></td>
             <td>
                 <select id="from" onchange="convert('C')">
-                    <option value="EUR" selected>EURO(EUR)</option>
-                    <option value="USD">USdollar(USD)</option>
-					<option value="RUB">Russian(RUB)</option>
+                    <option value="EUR" selected>EUR</option>
+                    <option value="USD">USD</option>
+					<option value="RUB">RUB</option>
                 </select>
             </td>
         </tr>
-        <!-- <tr>
+        <tr>
             <td> Сумма к переводу <input id="secondinput" onkeyup="convert('F')"></td>
             <td>
-                <select id="to"  onchange="convert('F')">
-                    <option value="EUR">EURO(EUR)</option>
-                    <option value="USD" selected>USdollar(USD)</option>
-					<option value="RUB">Russian(RUB)</option>
+                <select id="to" onchange="convert('F')">
+                    <option value="EUR">EUR</option>
+                    <option value="USD" selected >USD</option>
+					<option value="RUB">RUB</option>
                 </select>
             </td>
-        </tr> -->
-		<tr>
+        </tr>
+        <tr>
             <td> Сумма к переводу <input id="therthdinput" onkeyup="convert('D')"></td>
             <td>
-                <select id="to2"  onchange="convert('D')">
-                    <option value="EUR">EURO(EUR)</option>
-                    <option value="USD" selected>USdollar(USD)</option>
-					<option value="RUB">Russian(RUB)</option>
+                <select id="to2" onchange="convert('D')">
+                    <option value="EUR">EUR</option>
+                    <option value="USD">USD</option>
+					<option value="RUB" selected>RUB</option>
                 </select>
             </td>
         </tr>
 
-        </table>
+    </table>
 
-    </body>
-</html>
+</body>
+
 </html>
