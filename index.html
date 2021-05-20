@@ -1,21 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width">
-    <title>repl.it</title>
+    <title>Конвертер валют</title>
+    <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript"></script>
     <script src="script.js"></script>
     <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
+
     <h1 class="header">Конвертер валют</h1>
     <table>
         <div class="input">
             <label for="enter date">Выберите курс НБ РБ на дату:</label>
-            <input type="date" id="date" name="enter date">
-            <div id="curBYN">Курс рубля BYN:</div>
+            <span id="onDate">На дату: <input type="date" id="iDate" /></span>
+            <div id="curBYN">Курс рубля BYN:
+                <span id="Cur">Cur_ID валюты: <input type="text" id="iCur" /></span>
+                <ul id="res"></ul>
+            </div>
         </div>
         <tr>
             <td> Сумма к переводу <input id="firstinput" onkeyup="convert('C');"></td>
@@ -49,6 +55,17 @@
         </tr>
 
     </table>
+    <div>
+        <input type="button" id="btn" value="получить" />
+
+    </div>
+    <hr>
+    <div>
+        <iframe src="https://www.nbrb.by/publications/wmastersd.asp?
+lnkcolor=Maroon&bgcolor=e6e6dc&brdcolor=dcdccd" width=237 height=86 frameborder=0 scrolling=no>
+</iframe>
+    </div>
+
 
 </body>
 
