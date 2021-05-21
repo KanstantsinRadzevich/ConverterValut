@@ -1,14 +1,14 @@
-function convert(param1) {
-    var usdId = 145;
-    var eurId = 293;
-    var plnId = 355; //10pln
-    var rubId = 298; //100rub
-    var kztId = 302; //1000
+function convert(curRates ,param1) {
+    
+    console.log(curRates[0]);
+    // var usdId = param1[0];
+    // var eurId = curRates[1];
+    // var plnId = param1[2]; //10pln
+    // var rubId = param1[3]; //100rub
+    // var kztId = param1[4]; //1000
     
     
-    
-    var factor1;
-    var factor2;
+    document.getElementById('res').value = 12;   
     e = document.getElementById('EUR').value
     s = document.getElementById('USD').value
     r = document.getElementById('RUB').value
@@ -46,55 +46,6 @@ $(function() {
        rates2();
     });
 
-    // function currencies() {
-    //     $.getJSON(uri + 'ExRates/Currencies')
-    //         .done(function(data) {
-    //             $.each(data, function(key, item) {
-    //                 $('<li>', {
-    //                     text: JSON.stringify(item)
-    //                 }).appendTo($('#res'));
-    //             });
-    //             $('#btn').removeAttr("disabled");
-    //         }).error(function(err) {
-    //             $('#btn').removeAttr("disabled");
-    //             alert('ошибка');
-    //         });
-    // };
-
-    // function currency() {
-    //     $.getJSON(uri + 'ExRates/Currencies/' + $('#iCur').val())
-    //         .done(function(data) {
-    //             $('<li>', {
-    //                 text: JSON.stringify(data)
-    //             }).appendTo($('#res'));
-    //             $('#btn').removeAttr("disabled");
-    //         }).error(function(err) {
-    //             $('#btn').removeAttr("disabled");
-    //             alert('ошибка');
-    //         });
-    // };
-
-    // function rates(p) {
-    //     $.getJSON(uri + 'ExRates/Rates', {
-    //             'onDate': new Date($('#iDate').val()).toUTCString(),
-    //             'Periodicity': p
-    //         })
-    //         .done(function(data) {
-    //             $.each(data, function(key, item) {
-    //                 $('<li>', {
-    //                     text: JSON.stringify(item)
-    //                 }).appendTo($('#res'));
-    //             });
-
-                
-    //             $('#btn').removeAttr("disabled");
-    //         }).error(function(err) {
-    //             $('#btn').removeAttr("disabled");
-    //             alert('ошибка');
-    //         });
-    // };
-    
-    
 });
 function rates2() {
     var curRates = [];
@@ -106,33 +57,34 @@ function rates2() {
            $.each(data, function(key, item) {
              if(item["Cur_ID"] == 145){
                  
-                 curRates.push([item["Cur_OfficialRate"]])
+                 curRates.push(item["Cur_OfficialRate"])
              }
              if(item["Cur_ID"] == 292){
                
-                curRates.push([item["Cur_OfficialRate"]])
+                curRates.push(item["Cur_OfficialRate"])
             }
             if(item["Cur_ID"] == 293){
                
-                curRates.push([item["Cur_OfficialRate"]])
+                curRates.push(item["Cur_OfficialRate"])
             }
             if(item["Cur_ID"] == 298){
                
-                curRates.push([item["Cur_OfficialRate"]])
+                curRates.push(item["Cur_OfficialRate"])
             }
             if(item["Cur_ID"] == 301){
                
-                curRates.push([item["Cur_OfficialRate"]])
+                curRates.push(item["Cur_OfficialRate"])
             }   
 
            
      
             });
-        })
-        console.log(curRates)
-        convert(curRates);
-        return curRates;
+        });
+        console.log(curRates);
+        console.log(curRates.length);
        
+        convert(curRates);
+             
     }
 
 // function clearData(){
