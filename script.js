@@ -1,45 +1,4 @@
-function convert(curRates ,param1) {
-    
-    console.log(curRates[0]);
-    // var usdId = param1[0];
-    // var eurId = curRates[1];
-    // var plnId = param1[2]; //10pln
-    // var rubId = param1[3]; //100rub
-    // var kztId = param1[4]; //1000
-    
-    
-    document.getElementById('res').value = 12;   
-    e = document.getElementById('EUR').value
-    s = document.getElementById('USD').value
-    r = document.getElementById('RUB').value
-    p = document.getElementById('PLN').value
-    k = document.getElementById('KZT').value
 
-    if (e == s && e == r) {
-        factor1 = 1
-        factor2 = 1
-    } else if (e == 'EUR' && s == 'USD') {
-        factor1 = 1.06;
-        factor2 = 89.87;
-    } else if (s == 'USD' && e == 'EUR') {
-        factor1 = 1 / 1.06;
-    } else if (r == 'RUB' && e == 'EUR') {
-        factor2 = 0.0106;
-    }
-
-
-    if (param1 == "C") {
-        document.getElementById('secondinput').value = document.getElementById('firstinput').value * factor
-        document.getElementById('therthdinput').value = document.getElementById('firstinput').value * factor2
-    }
-    if (param1 == "F") {
-        document.getElementById('firstinput').value = document.getElementById('secondinput').value * factor
-    }
-    if (param1 == "D") {
-        document.getElementById('therthdinput').value = document.getElementById('therthdinput').value * factor2
-    }
-
-}
 var uri = 'https://www.nbrb.by/API/';
 $(function() {
     $('#btn').click(function() {
@@ -47,14 +6,15 @@ $(function() {
     });
 
 });
-function rates2() {
+function rates2(e) {
     var curRates = [];
     $.getJSON(uri + 'ExRates/Rates', {
             'onDate': new Date($('#iDate').val()).toUTCString(),
             'Periodicity': '0'
         })
         .done(function(data) {
-           $.each(data, function(key, item) {
+            $.each(data, function(key, item) {
+            
              if(item["Cur_ID"] == 145){
                  
                  curRates.push(item["Cur_OfficialRate"])
@@ -75,18 +35,63 @@ function rates2() {
                
                 curRates.push(item["Cur_OfficialRate"])
             }   
-
-           
-     
+    
             });
-        });
-        console.log(curRates);
-        console.log(curRates.length);
+            
        
-        convert(curRates);
-             
-    }
+        crossCur(curRates, e);
+    });
 
-// function clearData(){
-//     $("#ul").remove(); 
-//     };
+    
+}
+    function crossCur(curRates, e) {
+    
+    
+        var usdId = parseFloat(curRates[0], 10); //USD
+        var eurId = parseFloat(curRates[1], 10); //EUR
+        var plnId = parseFloat(curRates[2], 10); //10pln
+        var rubId = parseFloat(curRates[3], 10); //100rub
+        var kztId = parseFloat(curRates[4], 10); //1000
+        console.log(usdId / eurId)
+        
+        
+        
+        if (e == "E") {
+           document.getElementById('USD').value = document.getElementById('EUR').value *eurId/usdId;
+           document.getElementById('RUB').value = document.getElementById('EUR').value *eurId*100/rubId;
+           document.getElementById('PLN').value = document.getElementById('EUR').value *eurId*10/plnId;
+           document.getElementById('KZT').value = document.getElementById('EUR').value *eurId*1000/kztId;
+        }
+        if (e == "U") {
+            
+           document.getElementById('EUR').value = document.getElementById('USD').value *usdId/eurId;
+           document.getElementById('RUB').value = document.getElementById('USD').value *usdId/eurId *eurId*100/rubId;
+           document.getElementById('PLN').value = document.getElementById('USD').value *usdId/eurId *eurId*10/plnId;
+           document.getElementById('KZT').value = document.getElementById('USD').value *usdId/eurId *eurId*1000/kztId;
+        }
+        if (e == "R") {
+            
+            document.getElementById('EUR').value = document.getElementById('RUB').value *eurId*100/rubId/eurId;
+            document.getElementById('USD').value = document.getElementById('RUB').value *eurId*100/rubId /eurId *eurId/usdId;
+            document.getElementById('PLN').value = document.getElementById('RUB').value *eurId*100/rubId /eurId *eurId*10/plnId;
+            document.getElementById('KZT').value = document.getElementById('RUB').value *eurId*100/rubId /eurId *eurId*1000/kztId;
+         }
+         if (e == "P") {
+            
+            document.getElementById('EUR').value = document.getElementById('PLN').value *eurId*10/plnId/eurId;
+            document.getElementById('USD').value = document.getElementById('PLN').value *eurId*10/plnId/eurId*eurId/usdId;
+            document.getElementById('RUB').value = document.getElementById('PLN').value *eurId*10/plnId/eurId*eurId*100/rubId;
+            document.getElementById('KZT').value = document.getElementById('PLN').value *eurId*10/plnId/eurId*eurId*1000/kztId;
+         }
+         if (e == "K") {
+            
+            document.getElementById('EUR').value = document.getElementById('KZT').value *eurId*1000/kztId/eurId;
+            document.getElementById('USD').value = document.getElementById('KZT').value *eurId*1000/kztId/usdId;
+            document.getElementById('PLN').value = document.getElementById('KZT').value *eurId*1000/kztId*10/plnId;
+            document.getElementById('RUB').value = document.getElementById('KZT').value *eurId*1000/kztId*100/rubId;
+         }
+    };
+
+  
+  
+
