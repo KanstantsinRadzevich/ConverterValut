@@ -20,7 +20,7 @@ table {
 }
 
 .input {
-    background-color: darkcyan;
+    background-color: rgb(203, 243, 57);
     width: 420px;
 }
 
@@ -32,3 +32,11 @@ table {
     text-shadow: 2px 2px 5px red;
     font-size: 25px;
 }
+
+
+  input[type="date"] {
+    background-color: rgb(94, 255, 0);
+    outline: none;
+  }
+  
+ 

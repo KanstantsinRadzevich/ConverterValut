@@ -12,8 +12,13 @@
 </head>
 
 <body>
-
+    
     <h1 class="header">Конвертер валют</h1>
+    <div>
+        <iframe src="https://www.nbrb.by/publications/wmastersd.asp?
+    lnkcolor=Maroon&bgcolor=e6e6dc&brdcolor=dcdccd" width=237 height=86 frameborder=0 scrolling=no>
+    </iframe>
+    </div>
     <table>
         <div class="input">
             <label for="enter date">Выберите курс НБ РБ на дату:</label>
@@ -53,18 +58,37 @@
                 </select>
             </td>
         </tr>
+        <tr>
+            <td> Сумма к переводу <input id="forthinput" onkeyup="convert('E')"></td>
+            <td>
+                <select id="to3" onchange="convert('E')">
+                    <option value="EUR">EUR</option>
+                    <option value="USD">USD</option>
+					<option value="RUB">RUB</option>
+                    <option value="PLN" selected>PLN</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td> Сумма к переводу <input id="fifthdinput" onkeyup="convert('G')"></td>
+            <td>
+                <select id="to3" onchange="convert('G')">
+                    <option value="EUR">EUR</option>
+                    <option value="USD">USD</option>
+					<option value="RUB" >RUB</option>
+                    <option value="PLN" >PLN</option>
+                    <option value="KZT" selected>KZT</option>
+                </select>
+            </td>
+        </tr>
 
     </table>
     <div>
         <input type="button" id="btn" value="получить" />
+        <input type="reset" onclick="clearData()" value="Очистить">
 
     </div>
     <hr>
-    <div>
-        <iframe src="https://www.nbrb.by/publications/wmastersd.asp?
-lnkcolor=Maroon&bgcolor=e6e6dc&brdcolor=dcdccd" width=237 height=86 frameborder=0 scrolling=no>
-</iframe>
-    </div>
 
 
 </body>
