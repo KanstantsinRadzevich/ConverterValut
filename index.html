@@ -19,67 +19,36 @@
     lnkcolor=Maroon&bgcolor=e6e6dc&brdcolor=dcdccd" width=237 height=86 frameborder=0 scrolling=no>
     </iframe>
     </div>
-    <table>
-        <div class="input">
-            <label for="enter date">Выберите курс НБ РБ на дату:</label>
-            <span id="onDate">На дату: <input type="date" id="iDate" /></span>
-            <div id="curBYN">Курс рубля BYN:
-                <span id="Cur">Cur_ID валюты: <input type="text" id="iCur" /></span>
-                <ul id="res"></ul>
-            </div>
+
+    <div class="input">
+        <label for="enter date">Выберите курс НБ РБ на дату:</label>
+        <span id="onDate"><input type="date" id="iDate" /></span>
+        <div id="curBYN">
+            <span id="Cur">Cur_ID валюты: <input type="text" id="iCur" /></span>
+            <ul id="res"></ul>
         </div>
+    </div>
+
+    <table>
         <tr>
             <td> Сумма к переводу <input id="firstinput" onkeyup="convert('C');"></td>
-            <td>
-                <select id="from" onchange="convert('C')">
-                    <option value="EUR" selected>EUR</option>
-                    <option value="USD">USD</option>
-					<option value="RUB">RUB</option>
-                </select>
-            </td>
+            <td id="EUR" onchange="convert('C')" value="EUR">"EUR"</td>
         </tr>
         <tr>
             <td> Сумма к переводу <input id="secondinput" onkeyup="convert('F')"></td>
-            <td>
-                <select id="to" onchange="convert('F')">
-                    <option value="EUR">EUR</option>
-                    <option value="USD" selected >USD</option>
-					<option value="RUB">RUB</option>
-                </select>
-            </td>
+            <td id="USD" onchange="convert('F')" value="USD">"USD"</td>
         </tr>
         <tr>
             <td> Сумма к переводу <input id="therthdinput" onkeyup="convert('D')"></td>
-            <td>
-                <select id="to2" onchange="convert('D')">
-                    <option value="EUR">EUR</option>
-                    <option value="USD">USD</option>
-					<option value="RUB" selected>RUB</option>
-                </select>
-            </td>
+            <td id="RUB" onchange="convert('D')" value="RUB">"RUB"</td>
         </tr>
         <tr>
             <td> Сумма к переводу <input id="forthinput" onkeyup="convert('E')"></td>
-            <td>
-                <select id="to3" onchange="convert('E')">
-                    <option value="EUR">EUR</option>
-                    <option value="USD">USD</option>
-					<option value="RUB">RUB</option>
-                    <option value="PLN" selected>PLN</option>
-                </select>
-            </td>
+            <td id="PLN" onchange="convert('E')" value="PLN">"PLN"</td>
         </tr>
         <tr>
             <td> Сумма к переводу <input id="fifthdinput" onkeyup="convert('G')"></td>
-            <td>
-                <select id="to3" onchange="convert('G')">
-                    <option value="EUR">EUR</option>
-                    <option value="USD">USD</option>
-					<option value="RUB" >RUB</option>
-                    <option value="PLN" >PLN</option>
-                    <option value="KZT" selected>KZT</option>
-                </select>
-            </td>
+            <td id="KZT" onchange="convert('G')" value="KZT">"KZT"</td>
         </tr>
 
     </table>
