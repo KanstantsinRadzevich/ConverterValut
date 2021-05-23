@@ -1,12 +1,16 @@
 var uri = 'https://www.nbrb.by/API/';
 $(function() {
-    $('#btn').click(function() {
+    $('#btnGet').click(function() {
+        alert("Курсы обновлены на дату, указанную в календаре. Если ничего не выбрно - установлены курсы на сегодня!");
         rates2();
+
+
     });
 
 });
 
 function rates2(e) {
+
     var curRates = [];
     $.getJSON(uri + 'ExRates/Rates', {
             'onDate': new Date($('#iDate').val()).toUTCString(),
@@ -53,7 +57,7 @@ function crossCur(curRates, e) {
     var plnId = parseFloat(curRates[2], 10); //10pln
     var rubId = parseFloat(curRates[3], 10); //100rub
     var kztId = parseFloat(curRates[4], 10); //1000
-    console.log(usdId / eurId)
+
 
 
 
@@ -106,3 +110,15 @@ function crossCur(curRates, e) {
         document.getElementById('KZT').value = document.getElementById('BYN').value / kztId * 1000;
     }
 };
+
+
+
+document.getElementById("btnClr").addEventListener("click", function() {
+    // document.getElementById('EUR').value = '';
+    // document.getElementById('USD').value = '';
+    // document.getElementById('PLN').value = '';
+    // document.getElementById('RUB').value = '';
+    // document.getElementById('KZT').value = '';
+    // document.getElementById('BYN').value = '';
+    alert('Значения курсов установлены по умолчанию на сегодня');
+});
