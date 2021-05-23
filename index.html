@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    
+
     <h1 class="header">Конвертер валют</h1>
     <div>
         <iframe src="https://www.nbrb.by/publications/wmastersd.asp?
@@ -31,7 +31,7 @@
 
     <table>
         <tr>
-            <td> Сумма к переводу <input id="EUR"  onchange="rates2('E')" onkeyup="rates2('E');"></td>
+            <td> Сумма к переводу <input id="EUR" onchange="rates2('E')" onkeyup="rates2('E');"></td>
             <td id="EURq" onchange="convert('E')" value="EUR">"EUR"</td>
         </tr>
         <tr>
@@ -50,6 +50,10 @@
             <td> Сумма к переводу <input id="KZT" onchange="rates2('K')" onkeyup="rates2('K')"></td>
             <td id="KZTq" onchange="convert('K')" value="KZT">"KZT"</td>
         </tr>
+        <tr>
+            <td> Сумма к переводу <input id="BYN" onchange="rates2('B')" onkeyup="rates2('B')"></td>
+            <td id="BYNq" onchange="convert('B')" value="BYN">"BYN"</td>
+        </tr>
 
     </table>
     <div>
@@ -60,6 +64,8 @@
     <hr>
 
 
+    <iframe width="520" height="600" src="https://calc.by/calculators/standard/?style=0" scrolling="no" style="border: 5px;" id="standardCalc" onload="this.focus();"> 
+    </iframe>
 </body>
 
 </html>
