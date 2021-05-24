@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="utf-8" />
@@ -24,7 +24,7 @@
         <span id="onDate"><input type="date" id="iDate" /></span>
     </div>
 
-    <table id="enter">
+    <table  id="enter">
         <tr>
             <td>Сумма к переводу: <input id="EUR" onchange="rates2('E')" onkeyup="rates2('E');"></td>
             <td id="EURq" value="EUR">"EUR"</td>
@@ -57,10 +57,10 @@
         <button id="btnClr">Очистить</button>
     </div>
     <hr>
-    <div>
-        <iframe   width="auto" height="400" src="https://calc.by/calculators/standard/?style=0" scrolling="no" style="border: 5px;" id="standardCalc" onload="this.focus();"></iframe>
-
-        <iframe src="https://onlineradiomix.com/radio" frameborder="1" width="1200" height="420" style="margin-left: 90px"></iframe>
+    <div id="iframe_block">
+        <iframe src="https://calc.by/calculators/standard/?style=0" scrolling="no" id="standardCalc" onload="this.focus();"></iframe>
+        <iframe src="https://docs.google.com/spreadsheets/d/1IX5fpxRpOPlWzDRKXWgOQAzM8wd6I9Jv1Tr74ZCXPr0/edit#gid=0"id="googlesheet" ></iframe>
+        <iframe src="https://onlineradiomix.com/radio" id="radio" ></iframe>
     </div>
     
     <script>
