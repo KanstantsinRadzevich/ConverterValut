@@ -24,29 +24,29 @@
         <span id="onDate"><input type="date" id="iDate" /></span>
     </div>
 
-    <table>
+    <table id="enter">
         <tr>
-            <td> Сумма к переводу <input id="EUR" onchange="rates2('E')" onkeyup="rates2('E');"></td>
+            <td>Сумма к переводу: <input id="EUR" onchange="rates2('E')" onkeyup="rates2('E');"></td>
             <td id="EURq" value="EUR">"EUR"</td>
         </tr>
         <tr>
-            <td> Сумма к переводу <input id="USD" onkeyup="rates2('U')" onchange="rates2('U')"></td>
+            <td>Сумма к переводу: <input id="USD" onkeyup="rates2('U')" onchange="rates2('U')"></td>
             <td id="USDq" value="USD">"USD"</td>
         </tr>
         <tr>
-            <td> Сумма к переводу <input id="RUB" onchange="rates2('R')" onkeyup="rates2('R')"></td>
+            <td>Сумма к переводу: <input id="RUB" onchange="rates2('R')" onkeyup="rates2('R')"></td>
             <td id="RUBq" value="RUB">"RUB"</td>
         </tr>
         <tr>
-            <td> Сумма к переводу <input id="PLN" onchange="rates2('P')" onkeyup="rates2('P')"></td>
+            <td>Сумма к переводу: <input id="PLN" onchange="rates2('P')" onkeyup="rates2('P')"></td>
             <td id="PLNq" value="PLN">"PLN"</td>
         </tr>
         <tr>
-            <td> Сумма к переводу <input id="KZT" onchange="rates2('K')" onkeyup="rates2('K')"></td>
+            <td>Сумма к переводу: <input id="KZT" onchange="rates2('K')" onkeyup="rates2('K')"></td>
             <td id="KZTq" value="KZT">"KZT"</td>
         </tr>
         <tr id="BYNq">
-            <td> Сумма к переводу <input id="BYN" onchange="rates2('B')" onkeyup="rates2('B')"></td>
+            <td>Сумма к переводу: <input id="BYN" onchange="rates2('B')" onkeyup="rates2('B')"></td>
             <td value="BYN">"BYN"</td>
         </tr>
 
@@ -58,11 +58,11 @@
     </div>
     <hr>
     <div>
-        <iframe width="auto" height="420" src="https://calc.by/calculators/standard/?style=0" scrolling="no" style="border: 5px;" id="standardCalc" onload="this.focus();"></iframe>
+        <iframe   width="auto" height="400" src="https://calc.by/calculators/standard/?style=0" scrolling="no" style="border: 5px;" id="standardCalc" onload="this.focus();"></iframe>
 
-        <iframe src="https://onlineradiomix.com/radio" frameborder="1" width="1200" height="500"></iframe>
+        <iframe src="https://onlineradiomix.com/radio" frameborder="1" width="1200" height="420" style="margin-left: 90px"></iframe>
     </div>
-
+    
     <script>
         document.getElementById("btnClr").addEventListener("click", function() {
             document.getElementById('EUR').value = '';
@@ -72,7 +72,10 @@
             document.getElementById('KZT').value = '';
             document.getElementById('BYN').value = '';
             document.getElementById('iDate').value = '';
-            alert('Значения курсов установлены по умолчанию на сегодня');
+            var w = window.open('','','width=500,height=30')
+            w.document.write('Значения курсов установлены по умолчанию на сегодня')
+            w.focus()
+            setTimeout(function() {w.close();}, 2000)
         });
     </script>
 
