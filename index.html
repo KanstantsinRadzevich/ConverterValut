@@ -8,59 +8,67 @@
     <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
     <script type="text/javascript"></script>
     <script src="script.js"></script>
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="style.css" rel="stylesheet" type="text/css"/>
+    <title>Конвертер валют</title>
 </head>
 
 <body>
 
     <h1 class="header">Конвертер валют</h1>
+
     <div>
         <iframe src="https://www.nbrb.by/publications/wmastersd.asp?lnkcolor=Maroon&bgcolor=e6e6dc&brdcolor=dcdccd" width="237" height="86" frameborder="0" scrolling="no">
     </iframe>
     </div>
 
-    <div class="input">
-        <label for="enter date">Выберите курс НБ РБ на дату:</label>
-        <span id="onDate"><input type="date" id="iDate" /></span>
+    <div class="inputhead">
+        <label for="iDate">Выберите курс НБ РБ на дату:</label>
+        <span id="onDate"><input type="date" id="iDate" /></span> <!--for JS id= onDate-->
     </div>
-
-    <table  id="enter">
-        <tr>
-            <td>Сумма к переводу: <input id="EUR" onchange="rates2('E')" onkeyup="rates2('E');"></td>
-            <td id="EURq" value="EUR">"EUR"</td>
-        </tr>
-        <tr>
-            <td>Сумма к переводу: <input id="USD" onkeyup="rates2('U')" onchange="rates2('U')"></td>
-            <td id="USDq" value="USD">"USD"</td>
-        </tr>
-        <tr>
-            <td>Сумма к переводу: <input id="RUB" onchange="rates2('R')" onkeyup="rates2('R')"></td>
-            <td id="RUBq" value="RUB">"RUB"</td>
-        </tr>
-        <tr>
-            <td>Сумма к переводу: <input id="PLN" onchange="rates2('P')" onkeyup="rates2('P')"></td>
-            <td id="PLNq" value="PLN">"PLN"</td>
-        </tr>
-        <tr>
-            <td>Сумма к переводу: <input id="KZT" onchange="rates2('K')" onkeyup="rates2('K')"></td>
-            <td id="KZTq" value="KZT">"KZT"</td>
-        </tr>
-        <tr id="BYNq">
-            <td>Сумма к переводу: <input id="BYN" onchange="rates2('B')" onkeyup="rates2('B')"></td>
-            <td value="BYN">"BYN"</td>
-        </tr>
-
-    </table>
-    <div>
-        <button type="button" id="btnGet" value="Получить">Получить курсы</button>
-
-        <button id="btnClr">Очистить</button>
+    <div class="wrap">
+        <button id="btnGet" class="button">Получить курсы</button>
+        <button id="btnClr" class="button">Очистить</button>
     </div>
+    <div class="greed-container">
+       <table>
+            <tr>
+                <td>Сумма к переводу: <input id="EUR" onchange="rates2('E')" onkeyup="rates2('E');"></td>
+                <td id="EURq" value="EUR">"EUR"</td>
+            </tr>
+            <tr>
+                <td>Сумма к переводу: <input id="USD" onkeyup="rates2('U')" onchange="rates2('U')"></td>
+                <td id="USDq" value="USD">"USD"</td>
+            </tr>
+            <tr>
+                <td>Сумма к переводу: <input id="RUB" onchange="rates2('R')" onkeyup="rates2('R')"></td>
+                <td id="RUBq" value="RUB">"RUB"</td>
+            </tr>
+            <tr>
+                <td>Сумма к переводу: <input id="PLN" onchange="rates2('P')" onkeyup="rates2('P')"></td>
+                <td id="PLNq" value="PLN">"PLN"</td>
+            </tr>
+            <tr>
+                <td>Сумма к переводу: <input id="KZT" onchange="rates2('K')" onkeyup="rates2('K')"></td>
+                <td id="KZTq" value="KZT">"KZT"</td>
+            </tr>
+            <tr id="BYNq">
+                <td>Сумма к переводу: <input id="BYN" onchange="rates2('B')" onkeyup="rates2('B')"></td>
+                <td value="BYN">"BYN"</td>
+            </tr>
+
+        </table>
+        <iframe id="standardCalc" src="https://calc.by/calculators/standard/?style=0" scrolling="no" onload="this.focus();"></iframe>
+        <iframe id="radio" src="https://onlineradiomix.com/radio" class="table" ></iframe>
+    </div>   
+    
     <hr>
-    <div id="iframe_block">
-        <iframe src="https://calc.by/calculators/standard/?style=0" scrolling="no" id="standardCalc" onload="this.focus();"></iframe>
-        <iframe src="https://docs.google.com/spreadsheets/d/1IX5fpxRpOPlWzDRKXWgOQAzM8wd6I9Jv1Tr74ZCXPr0/edit#gid=0"id="googlesheet" ></iframe>
-        <iframe src="https://onlineradiomix.com/radio" id="radio" ></iframe>
+    <div class="wrap">
+        <button id="btn_prog_up" class="button" onclick="viewDiv()">Показать таблицу </button>
+        <button class="button" id="btn_prog_down" onclick="viewDivClose()">Свернуть таблицу</button>
+    </div>
+    
+    <div id="iframe_block" class="flex-container">
+        <iframe id="googlesheet"  src="https://docs.google.com/spreadsheets/d/1IX5fpxRpOPlWzDRKXWgOQAzM8wd6I9Jv1Tr74ZCXPr0/edit#gid=0"></iframe>
     </div>
     
     <script>

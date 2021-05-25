@@ -1,81 +1,130 @@
-/* tr {
-    color: blue;
+#iframe_block {
+    border: 3px cadetblue;
+    margin: 3;
+    padding: 1;
+    opacity: 0.8;
+    display: inline-block;
+    width: 900px;
+    height: 1900px;
+    
 }
-
-td {
-    font-size: large;
-    color: rgb(214, 61, 6);
-} */
-
-table {
-    border: 1px solid black;
-    padding: 25px;
-    text-align: center;
-    width: 620px;
+#googlesheet {
+    width: 900px;
+    height: 600px;
+    
+}
+#standardCalc {
+    width: 320px;
+    height: 400px;
+    opacity: 0.8;
+   
+}
+ #radio {
+    width: 500px;
+    height: 200px;
     
 }
 
-.header {
-    color: rgb(32, 112, 12);
-    width: 600px;
-    text-align: center;
-}
-
-#curBYN {
-    font-family: "Times New Roman", Times, Serif;
-    color: rgb(53, 52, 5);
-    text-align: center;
-    text-transform: capitalize;
-    text-shadow: 2px 2px 5px red;
-    font-size: 25px;
-}
-
-input[type="date"] {
-    background-color: rgb(236, 214, 9);
-    outline: none;
-    
+#iframe_block {
+    display: none;
 }
 
 #BYNq {
     font-style: italic;
 }
 
-* {
-    background-color: rgb(250, 214, 166);
+#iDate {
+    margin-bottom: 10px;
+    padding: 4px 8px;
+    background: #f5f823b9; /* Цвет фона */
+    border: 2px solid #b3b61d; /* Параметры рамки */
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+    
 }
+#btnGet, #btnClr, #btn_prog_up, #btn_prog_down {
+  width: 140px;
+  height: 45px;
+  font-family: 'Georgia', serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: rgb(104, 3, 3);
+  background-color: #f78a2391;
+  border: 2px solid #b4aa72;
+  border-radius: 45px;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+  padding: 4px 8px;
+  margin-bottom: 10px;
+  }
+
+.wrap {
+    height: 100%;
+    display: flex;
+    align-items: left;
+    justify-content: left;
+  }
+  .button:hover {
+    background-color: #2EE59D;
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+  }
+
+.header {
+    color: rgb(26, 65, 243);
+    width: 600px;
+    text-align: center;
+}
+
 input {
+    margin-left: 10px; /* Расстояние между полем и текстом */
+    padding: 5px;
+    line-height: 20px;
+    font-size: 15px;
+    cursor: pointer;
+}
+input:focus {
+    margin-left: 10px; /* Расстояние между полем и текстом */
+    padding: 5px;
+    line-height: 20px;
+    font-size: 15px;
+    background-color: khaki;
+}
+input:hover {
+    background-color: rgb(243, 226, 74);
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    color: rgb(0, 0, 0);
+    transform: translateY(-2px);
+  }
+
+.inputhead {
+    display: block;
     margin-left: 10px; /* Расстояние между полем и текстом */
     padding: 5px;
     line-height: 25px;
     font-size: 20px;
-}
-
-#enter input:focus {
-    background: rgb(155, 240, 157); /* Цвет фона */
-    border: 1px solid #ff0101; /* Параметры рамки */
-    color: rgb(192, 10, 10);
-  
-}
-#iframe_block{
-    border: none;
-    margin: 3;
-    padding: 1;
-    opacity: 0.8;
-    display: inline-block;
-    width: auto;
-    height: 1900px;
+    border-radius: 10px;
+    cursor: pointer;
    
 }
-#googlesheet {
-    width: 400px;
-    height: 400px;
-}
-#standardCalc {
-    width: 320px;
-    height: 400px;
 
+.greed-container {
+    display: grid;
+	grid-template-columns: 25% 20% 10%;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    align-items: top;
+    justify-content: top;
+       
+   
 }
-#radio {
-    width: 500px;
-    height: 400px;
-}
+* {
+    background-color: rgba(250, 226, 194, 0.89);
+    
+};

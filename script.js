@@ -115,5 +115,11 @@ function crossCur(curRates, e) {
     }
 };
 
+function viewDiv(){
+    document.getElementById("iframe_block").style.display = "block";
+  };
+  function viewDivClose(){
+    document.getElementById("iframe_block").style.display = "none";
+  };
 
 
