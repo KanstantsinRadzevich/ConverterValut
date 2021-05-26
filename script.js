@@ -1,10 +1,10 @@
 var uri = 'https://www.nbrb.by/API/';
 $(function() {
     $('#btnGet').click(function() {
-        var w2 = window.open('','','width=500,height=40')
-            w2.document.write('Курсы обновлены на дату, указанную в календаре. Если ничего не выбрно - установлены курсы на сегодня!')
-            w2.focus()
-            setTimeout(function() {w2.close();}, 2000)
+        var w = window.open('','','width=500,height=40')
+            w.document.write('Курсы обновлены на дату, указанную в календаре. Если ничего не выбрно - установлены курсы на сегодня!')
+            w.focus()
+            setTimeout(function() {w.close();}, 2000)
     
         rates2();
 
@@ -22,7 +22,7 @@ function rates2(e) {
         })
         .done(function(data) {
             $.each(data, function(key, item) {
-
+                    console.log(data)
                 if (item["Cur_ID"] == 145) {
 
                     curRates.push(item["Cur_OfficialRate"])
@@ -43,10 +43,14 @@ function rates2(e) {
 
                     curRates.push(item["Cur_OfficialRate"])
                 }
+                if (item["Cur_ID"] == 345) {
+
+                    curRates.push(item["Cur_OfficialRate"])
+                }
 
             });
 
-
+            console.log(curRates)
             crossCur(curRates, e);
         });
 
@@ -61,6 +65,7 @@ function crossCur(curRates, e) {
     var plnId = parseFloat(curRates[2], 10); //10pln
     var rubId = parseFloat(curRates[3], 10); //100rub
     var kztId = parseFloat(curRates[4], 10); //1000
+    var uzsId = parseFloat(curRates[5], 10); //10000
 
 
 
@@ -70,6 +75,7 @@ function crossCur(curRates, e) {
         document.getElementById('RUB').value = (document.getElementById('EUR').value * eurId * 100 / rubId).toFixed(4);
         document.getElementById('PLN').value = (document.getElementById('EUR').value * eurId * 10 / plnId).toFixed(4);
         document.getElementById('KZT').value = (document.getElementById('EUR').value * eurId * 1000 / kztId).toFixed(4);
+        document.getElementById('UZS').value = (document.getElementById('EUR').value * eurId * 10000 / uzsId).toFixed(4);
         document.getElementById('BYN').value = (document.getElementById('EUR').value * eurId).toFixed(4);
     }
     if (e == "U") {
@@ -105,6 +111,15 @@ function crossCur(curRates, e) {
         document.getElementById('RUB').value = (document.getElementById('KZT').value * kztId / 1000 / rubId * 100).toFixed(4);
         document.getElementById('BYN').value = (document.getElementById('KZT').value * kztId / 1000).toFixed(4);
     }
+    if (e == "UZ") {
+
+        document.getElementById('EUR').value = (document.getElementById('UZS').value * uzsId / 10000 / eurId).toFixed(4);
+        document.getElementById('USD').value = (document.getElementById('UZS').value * uzsId / 10000 / usdId).toFixed(4);
+        document.getElementById('PLN').value = (document.getElementById('UZS').value * uzsId / 10000 / plnId * 10).toFixed(4);
+        document.getElementById('RUB').value = (document.getElementById('UZS').value * uzsId / 10000 / rubId * 100).toFixed(4);
+        document.getElementById('KZT').value = (document.getElementById('UZS').value * uzsId / 10000 / kztId * 1000).toFixed(4);
+        document.getElementById('BYN').value = (document.getElementById('UZS').value * uzsId / 10000).toFixed(4);
+    }
     if (e == "B") {
 
         document.getElementById('EUR').value = (document.getElementById('BYN').value / eurId).toFixed(4);
@@ -122,4 +137,15 @@ function viewDiv(){
     document.getElementById("iframe_block").style.display = "none";
   };
 
+//----Для получения одной валюты по коду. Буду использовать для узбекского сума  //
 
+  function rate(p) {
+    $.getJSON(uri + 'ExRates/Rates/' + $('#iCur').val(), { 'onDate': parseRuDate($('#iDate').val()).toUTCString(), 'ParamMode': p })
+  .done(function (data) {
+      $('<li>', { text: JSON.stringify(data) }).appendTo($('#res'));
+      $('#btn').removeAttr("disabled");
+  }).error(function (err) {
+      $('#btn').removeAttr("disabled");
+      alert('ошибка');
+  });
+};

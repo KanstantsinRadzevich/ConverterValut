@@ -32,27 +32,31 @@
     <div class="greed-container">
        <table>
             <tr>
-                <td>Сумма к переводу: <input id="EUR" onchange="rates2('E')" onkeyup="rates2('E');"></td>
+                <td>Сумма к переводу: <input id="EUR"  onkeyup="rates2('E');"></td>
                 <td id="EURq" value="EUR">"EUR"</td>
             </tr>
             <tr>
-                <td>Сумма к переводу: <input id="USD" onkeyup="rates2('U')" onchange="rates2('U')"></td>
+                <td>Сумма к переводу: <input id="USD" onkeyup="rates2('U')"></td>
                 <td id="USDq" value="USD">"USD"</td>
             </tr>
             <tr>
-                <td>Сумма к переводу: <input id="RUB" onchange="rates2('R')" onkeyup="rates2('R')"></td>
+                <td>Сумма к переводу: <input id="RUB" onkeyup="rates2('R')"></td>
                 <td id="RUBq" value="RUB">"RUB"</td>
             </tr>
             <tr>
-                <td>Сумма к переводу: <input id="PLN" onchange="rates2('P')" onkeyup="rates2('P')"></td>
+                <td>Сумма к переводу: <input id="PLN" onkeyup="rates2('P')"></td>
                 <td id="PLNq" value="PLN">"PLN"</td>
             </tr>
             <tr>
-                <td>Сумма к переводу: <input id="KZT" onchange="rates2('K')" onkeyup="rates2('K')"></td>
+                <td>Сумма к переводу: <input id="KZT" onkeyup="rates2('K')"></td>
                 <td id="KZTq" value="KZT">"KZT"</td>
             </tr>
+            <tr>
+                <td>Сумма к переводу: <input id="UZS"onkeyup="rates2('UZ')"></td>
+                <td id="UZSq" value="UZS">"UZS"</td>
+            </tr>
             <tr id="BYNq">
-                <td>Сумма к переводу: <input id="BYN" onchange="rates2('B')" onkeyup="rates2('B')"></td>
+                <td>Сумма к переводу: <input id="BYN" onkeyup="rates2('B')"></td>
                 <td value="BYN">"BYN"</td>
             </tr>
 
@@ -78,6 +82,7 @@
             document.getElementById('PLN').value = '';
             document.getElementById('RUB').value = '';
             document.getElementById('KZT').value = '';
+            document.getElementById('UZS').value = '';
             document.getElementById('BYN').value = '';
             document.getElementById('iDate').value = '';
             var w = window.open('','','width=500,height=30')
