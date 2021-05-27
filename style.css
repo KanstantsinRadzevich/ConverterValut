@@ -1,32 +1,7 @@
-#iframe_block {
-    border: 3px #5f9ea0;
-    margin: 3;
-    padding: 1;
-    opacity: 0.8;
-    display: inline-block;
-    width: 900px;
-    height: 1900px;
-}
-
-#googlesheet {
-    width: 900px;
-    height: 600px;
-    
-}
-
 #standardCalc {
     width: 320px;
     height: 400px;
     opacity: 0.8;
-}
-
-#radio {
-    width: 500px;
-    height: 200px;
-}
-
-#iframe_block {
-    display: none;
 }
 
 #BYNq {
@@ -38,12 +13,12 @@
     padding: 4px 8px;
     background: rgba(245, 248, 35, 0.725); /* Цвет фона */
     border: 2px solid #b3b61d; /* Параметры рамки */
-    border-radius: 20px;
+    border-radius: 5px;
     cursor: pointer;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
 }
 
-#btnGet, #btnClr, #btn_prog_up, #btn_prog_down {
+#btnGet, #btnClr {
   width: 140px;
   height: 45px;
   font-family: 'Georgia', serif;
@@ -51,7 +26,7 @@
   text-transform: uppercase;
   letter-spacing: 2.5px;
   font-weight: 500;
-  color: rgb(104, 3, 3);
+  color: #680303;
   background-color: rgba(247, 138, 35, 0.569);
   border: 2px solid #b4aa72;
   border-radius: 45px;
@@ -59,21 +34,22 @@
   cursor: pointer;
   outline: none;
   box-shadow: 0px 8px 15px #00000033;
-  padding: 4px 8px;
+  padding: 8px 10px;
   margin-bottom: 10px;
-  }
+}
 
 .wrap {
     height: 100%;
     display: flex;
     align-items: left;
     justify-content: left;
+    margin: 15px;
 }
 .button:hover {
     background-color: #2EE59D;
     box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
     color: #fff;
-    transform: translateY(-7px);
+    transform: translateY(-5px);
 }
 
 .header {
@@ -82,36 +58,43 @@
     text-align: center;
 }
 
-input {
-    margin-left: 10px; /* Расстояние между полем и текстом */
-    padding: 5px;
-    line-height: 20px;
-    font-size: 15px;
-    cursor: pointer;
-}
-
-input:focus {
-    margin-left: 10px; /* Расстояние между полем и текстом */
-    padding: 5px;
-    line-height: 20px;
-    font-size: 15px;
-    background-color: #f0e68c;
-}
-input:hover {
-    background-color: #f3e24a;
-    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
-    color: #000;
-    transform: translateY(-2px);
-}
-
 .inputhead {
     display: block;
     margin-left: 10px; /* Расстояние между полем и текстом */
     padding: 5px;
     line-height: 25px;
     font-size: 20px;
-    border-radius: 10px;
+    border-radius: 5px;
     cursor: pointer;
+}
+
+input {
+    margin-left: 10px; /* Расстояние между полем и текстом */
+    padding: 5px;
+    line-height: 150%;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    color: initial;
+    background-color: initial;
+    font-weight: initial;
+}
+
+input:focus {
+    margin-left: 10px; /* Расстояние между полем и текстом */
+    padding: 5px;
+    line-height: 150%;
+    background-color: #faed77;
+    font-weight: bold;
+    color: #dc143c;
+}
+
+input:hover {
+    background-color: #faed77;
+    box-shadow: 0px 20px 30px rgba(46, 229, 157, 0.4);
+    color: #e72323;
+    transform: translateY(-2px);
+    border-radius: 5px;
 }
 
 .greed-container {
@@ -123,6 +106,6 @@ input:hover {
     justify-content: top;
 }
 
-* {
+body {
     background-color: rgba(250, 226, 194, 0.89);
 }
