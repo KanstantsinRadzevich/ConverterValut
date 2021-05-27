@@ -17,7 +17,7 @@
     <h1 class="header">Конвертер валют</h1>
 
     <div>
-        <iframe src="https://www.nbrb.by/publications/wmastersd.asp?lnkcolor=Maroon&bgcolor=e6e6dc&brdcolor=dcdccd" width="237" height="86" frameborder="0" scrolling="no">
+        <iframe src="https://www.nbrb.by/publications/wmastersd.asp?lnkcolor=Maroon&bgcolor=e6e6dc&brdcolor=dcdccd" width="237" height="86" frameborder="1" scrolling="no">
     </iframe>
     </div>
 
@@ -62,10 +62,11 @@
 
         </table>
         <iframe id="standardCalc" src="https://calc.by/calculators/standard/?style=0" scrolling="no" onload="this.focus();"></iframe>
-        <iframe id="radio" src="https://onlineradiomix.com/radio" class="table" ></iframe>
+       <!-- <iframe id="radio" src="https://onlineradiomix.com/radio" class="table" ></iframe> -->
     </div>   
     
     <hr>
+    <!--
     <div class="wrap">
         <button id="btn_prog_up" class="button" onclick="viewDiv()">Показать таблицу </button>
         <button class="button" id="btn_prog_down" onclick="viewDivClose()">Свернуть таблицу</button>
@@ -74,7 +75,7 @@
     <div id="iframe_block" class="flex-container">
         <iframe id="googlesheet"  src="https://docs.google.com/spreadsheets/d/1IX5fpxRpOPlWzDRKXWgOQAzM8wd6I9Jv1Tr74ZCXPr0/edit#gid=0"></iframe>
     </div>
-    
+    -->
     <script>
         document.getElementById("btnClr").addEventListener("click", function() {
             document.getElementById('EUR').value = '';
