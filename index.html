@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru" xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width">
@@ -7,56 +8,62 @@
     <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
     <script type="text/javascript"></script>
     <script src="script.js"></script>
-    <link href="style.css" rel="stylesheet" type="text/css"/>
+    <link href="style.css" rel="stylesheet" type="text/css" />
     <title>Конвертер валют</title>
 </head>
+
 <body>
     <h1 class="header">Конвертер валют</h1>
-    <div>
-        <iframe src="https://www.nbrb.by/publications/wmastersd.asp?lnkcolor=Maroon&bgcolor=e6e6dc&brdcolor=dcdccd" width="237" height="86" frameborder="1" scrolling="no">
+
+    <div id="nbrb">
+        <iframe src="https://www.nbrb.by/publications/wmastersd.asp?lnkcolor=Maroon&bgcolor=e6e6dc&brdcolor=dcdccd"
+        width=237 height=86 frameborder="1" scrolling="no">
         </iframe>
     </div>
+
     <div class="container">
         <div class="inputhead">
             <label for="iDate">Выберите курс НБ РБ на дату:</label>
-            <span id="onDate"><input type="date" id="iDate" /></span> <!--for JS id= onDate-->
+            <span id="onDate"><input type="date" id="iDate" /></span>
+            <!--for JS id= onDate-->
         </div>
-        
-        <div class="wrap">
+
+        <div>
             <button id="btnGet" class="button">Получить курсы</button>
             <button id="btnClr" class="button">Очистить поля</button>
         </div>
 
-       <table id="myTable" >
+        <table id="myTable">
             <tr>
-                <td>Сумма к переводу: "EUR" <input id="EUR" class='input' onkeyup="rates2('E')" onblur='backGroundColor("EUR")';></td>
+                <td>Сумма к переводу: "EUR" <input id="EUR" class='input' onkeyup="rates2('E')" onblur="backGroundColor('EUR')" ;></td>
             </tr>
             <tr>
-                <td>Сумма к переводу: "USD" <input id="USD" class='input' onkeyup="rates2('U')" onblur='backGroundColor("USD")'></td>
+                <td>Сумма к переводу: "USD" <input id="USD" class='input' onkeyup="rates2('U')" onblur="backGroundColor('USD')"></td>
             </tr>
             <tr>
-                <td>Сумма к переводу: "RUB" <input id="RUB" class='input' onkeyup="rates2('R')" onblur='backGroundColor("RUB")'></td>
+                <td>Сумма к переводу: "RUB" <input id="RUB" class='input' onkeyup="rates2('R')" onblur="backGroundColor('RUB')"></td>
             </tr>
             <tr>
-                <td>Сумма к переводу: "PLN" <input id="PLN" class='input' onkeyup="rates2('P')" onblur='backGroundColor("PLN")'></td>
+                <td>Сумма к переводу: "PLN" <input id="PLN" class='input' onkeyup="rates2('P')" onblur="backGroundColor('PLN')"></td>
             </tr>
             <tr>
-                <td>Сумма к переводу: "KZT" <input id="KZT" class='input' onkeyup="rates2('K')" onblur='backGroundColor("KZT")'></td>
+                <td>Сумма к переводу: "KZT" <input id="KZT" class='input' onkeyup="rates2('K')" onblur="backGroundColor('KZT')"></td>
             </tr>
             <tr>
-                <td>Сумма к переводу: "UZS" <input id="UZS" class='input' onkeyup="rates2('UZ')" onblur='backGroundColor("UZS")'></td>
+                <td>Сумма к переводу: "UZS" <input id="UZS" class='input' onkeyup="rates2('UZ')" onblur="backGroundColor('UZS')"></td>
             </tr>
             <tr id="BYNq">
-                <td>Сумма к переводу: "BYN" <input id="BYN" class='input' onkeyup="rates2('B')" onblur='backGroundColor("BYN")'></td>
+                <td>Сумма к переводу: "BYN" <input id="BYN" class='input' onkeyup="rates2('B')" onblur="backGroundColor('BYN')"></td>
             </tr>
-
         </table>
     </div>
+
     <div>
-        <iframe id="standardCalc" src="https://calc.by/calculators/standard/?style=0" scrolling="no" frameborder="0" onload="this.focus();"></iframe>
+        <iframe id="standardCalc" src="https://calc.by/calculators/standard/?style=0" scrolling="no" frameborder="0"
+            onload="this.focus();"></iframe>
     </div>
     <script>
-        document.getElementById("btnClr").addEventListener("click", function() {
+        document.getElementById("btnClr").addEventListener("click", function () {
             document.getElementById('EUR').value = '';
             document.getElementById('USD').value = '';
             document.getElementById('PLN').value = '';
@@ -66,11 +73,12 @@
             document.getElementById('BYN').value = '';
             document.getElementById('iDate').value = '';
             changeInputColor();
-            var w = window.open('','','width=500,height=30')
+            var w = window.open('', '', 'width=500,height=30')
             w.document.write('Значения курсов установлены по умолчанию на сегодня')
             w.focus()
-            setTimeout(function() {w.close();}, 2000)
+            setTimeout(function () { w.close(); }, 2000)
         });
     </script>
 </body>
+
 </html>

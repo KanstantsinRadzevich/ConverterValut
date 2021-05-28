@@ -1,8 +1,16 @@
 #standardCalc {
     display: inline-block;
+    width: -webkit-fill-available;
     height: 400px;
     opacity: 0.8;
-   }
+    margin-inline-start: 12%;
+}
+
+iframe {
+    margin: 0;
+    left: 50%;
+    margin-inline-start: 16%;
+}
 
 #BYNq {
     font-style: italic;
@@ -11,7 +19,7 @@
 #iDate {
     display: inline-block;
     margin-bottom: 10px;
-    padding: 4px 8px;
+    margin-inline-start: 5%;
     background: rgba(245, 248, 35, 0.725); /* Цвет фона */
     border: 2px solid #b3b61d; /* Параметры рамки */
     border-radius: 5px;
@@ -37,14 +45,16 @@
   outline: none;
   box-shadow: 0px 8px 15px #00000033;
   padding: 8px 10px;
-  margin-bottom: 10px;
-}
+  margin-inline-end: 2%;
+  margin-inline-start: 8%;
+}  
 
-.wrap {
+.button {
     display:inline-block;
     align-items: left;
     justify-content: left;
-    margin: 15px;
+    margin: 5px;
+    text-align: center;
 }
 
 .button:hover {
@@ -52,6 +62,7 @@
     box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
     color: #fff;
     transform: translateY(-5px);
+    text-align: center;
 }
 
 .inputhead {
@@ -60,37 +71,33 @@
     font-weight: bold;
     border-radius: 5px;
     cursor: pointer;
-}
-
-.container {
-    display: inline-block;
-    grid-template-columns: 25% 20% 10%;
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
-    align-items: top;
-    justify-content: top;
+    color: #dc143c;
 }
 
 input {
     display: inline-block;
     padding: 5px;
     font-size: 15px;
-    cursor: pointer;
     border-radius: 5px;
     color: initial;
     background-color: initial;
     font-weight: initial;
+    cursor: pointer;
+   
 }
 
 input:focus {
-    margin-left: 10px; /* Расстояние между полем и текстом */
+    display: inline-block;
     padding: 5px;
+    font-size: 15px;
+    border-radius: 5px;
     background-color: #faed77;
     font-weight: bold;
     color: #dc143c;
 }
 
 input:hover {
+    display: inline-block;
     background-color: #faed77;
     box-shadow: 0px 20px 30px rgba(46, 229, 157, 0.4);
     color: #e72323;
@@ -98,13 +105,19 @@ input:hover {
     border-radius: 5px;
 }
 
-body, h1 {
+label, td {
+    display: inline-block;
+    text-align: center;
+    margin: 2% auto;/* Расстояние между полем и текстом */
+}
+body {
     background-color: rgba(247, 235, 221, 0.89);
     position: relative;
-    text-align: center;
     max-width: 500px;
+    margin-left: 20px;/* Расстояние между полем и текстом */
 }
 
 h1 {
     color: #1a41f3;
+    margin-inline-start: 15%;
 }

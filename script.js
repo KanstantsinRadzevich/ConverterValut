@@ -1,14 +1,30 @@
+function backGroundColor(ID) {
+    changeInputColor();
+    document.getElementById(ID).style.backgroundColor = "lightgreen";
+    document.getElementById(ID).style.color = "red";
+    document.getElementById(ID).style.fontWeight = "bold";
+};
+
+function changeInputColor(){
+    var y = document.getElementsByTagName("input");
+    var i;
+    for (i = 0; i < y.length; i++) {
+        y[i].style.backgroundColor = "";
+        y[i].style.color = "";
+        y[i].style.fontWeight = "";
+    };
+};
+
 var uri = 'https://www.nbrb.by/API/';
 $(function() {
     $('#btnGet').click(function() {
-        window.setTimeout('alert("Message goes here");window.close();', 5000);
         var w = window.open('','','width=500,height=40');
-            w.document.write('Курсы обновлены на дату, указанную в календаре. Если ничего не выбрно - установлены курсы на сегодня!');
-            w.focus();
-            setTimeout(function() {w.close();}, 2000);
-            rates2();    
-        });    
+        w.document.write('Курсы обновлены на дату, указанную в календаре. Если ничего не выбрно - установлены курсы на сегодня!');
+        w.focus();
+        setTimeout(function() {w.close();}, 2000);
+        rates2();    
     });    
+});    
         
 function rates2(e) {
     var curRates = [];
@@ -112,19 +128,3 @@ function crossCur(curRates, e) {
     };
 };
 
-function backGroundColor(ID) {
-    changeInputColor();
-    document.getElementById(ID).style.backgroundColor = "lightgreen";
-    document.getElementById(ID).style.color = "red";
-    document.getElementById(ID).style.fontWeight = "bold";
-};
-
-function changeInputColor(){
-    var y = document.getElementsByTagName("input");
-    var i;
-    for (i = 0; i < y.length; i++) {
-        y[i].style.backgroundColor = "";
-        y[i].style.color = "";
-        y[i].style.fontWeight = "";
-    };
-};
