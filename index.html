@@ -16,47 +16,44 @@
         <iframe src="https://www.nbrb.by/publications/wmastersd.asp?lnkcolor=Maroon&bgcolor=e6e6dc&brdcolor=dcdccd" width="237" height="86" frameborder="1" scrolling="no">
         </iframe>
     </div>
-    <div class="inputhead">
-        <label for="iDate">Выберите курс НБ РБ на дату:</label>
-        <span id="onDate"><input type="date" id="iDate" /></span> <!--for JS id= onDate-->
-    </div>
-    <div class="wrap">
-        <button id="btnGet" class="button">Получить курсы</button>
-        <button id="btnClr" class="button">Очистить</button>
-    </div>
-    <div class="greed-container">
+    <div class="container">
+        <div class="inputhead">
+            <label for="iDate">Выберите курс НБ РБ на дату:</label>
+            <span id="onDate"><input type="date" id="iDate" /></span> <!--for JS id= onDate-->
+        </div>
+        
+        <div class="wrap">
+            <button id="btnGet" class="button">Получить курсы</button>
+            <button id="btnClr" class="button">Очистить поля</button>
+        </div>
+
        <table id="myTable" >
             <tr>
-                <td>Сумма к переводу: <input id="EUR" class='input' onkeyup="rates2('E')" onblur='backGroundColor("EUR")';></td>
-                <td value="EUR">"EUR"</td>
+                <td>Сумма к переводу: "EUR" <input id="EUR" class='input' onkeyup="rates2('E')" onblur='backGroundColor("EUR")';></td>
             </tr>
             <tr>
-                <td>Сумма к переводу: <input id="USD" class='input' onkeyup="rates2('U')" onblur='backGroundColor("USD")'></td>
-                <td value="USD">"USD"</td>
+                <td>Сумма к переводу: "USD" <input id="USD" class='input' onkeyup="rates2('U')" onblur='backGroundColor("USD")'></td>
             </tr>
             <tr>
-                <td>Сумма к переводу: <input id="RUB" class='input' onkeyup="rates2('R')" onblur='backGroundColor("RUB")'></td>
-                <td value="RUB">"RUB"</td>
+                <td>Сумма к переводу: "RUB" <input id="RUB" class='input' onkeyup="rates2('R')" onblur='backGroundColor("RUB")'></td>
             </tr>
             <tr>
-                <td>Сумма к переводу: <input id="PLN" class='input' onkeyup="rates2('P')" onblur='backGroundColor("PLN")'></td>
-                <td value="PLN">"PLN"</td>
+                <td>Сумма к переводу: "PLN" <input id="PLN" class='input' onkeyup="rates2('P')" onblur='backGroundColor("PLN")'></td>
             </tr>
             <tr>
-                <td>Сумма к переводу: <input id="KZT" class='input' onkeyup="rates2('K')" onblur='backGroundColor("KZT")'></td>
-                <td value="KZT">"KZT"</td>
+                <td>Сумма к переводу: "KZT" <input id="KZT" class='input' onkeyup="rates2('K')" onblur='backGroundColor("KZT")'></td>
             </tr>
             <tr>
-                <td>Сумма к переводу: <input id="UZS" class='input' onkeyup="rates2('UZ')" onblur='backGroundColor("UZS")'></td>
-                <td value="UZS">"UZS"</td>
+                <td>Сумма к переводу: "UZS" <input id="UZS" class='input' onkeyup="rates2('UZ')" onblur='backGroundColor("UZS")'></td>
             </tr>
             <tr id="BYNq">
-                <td>Сумма к переводу: <input id="BYN" class='input' onkeyup="rates2('B')" onblur='backGroundColor("BYN")'></td>
-                <td value="BYN">"BYN"</td>
+                <td>Сумма к переводу: "BYN" <input id="BYN" class='input' onkeyup="rates2('B')" onblur='backGroundColor("BYN")'></td>
             </tr>
 
         </table>
-        <iframe id="standardCalc" src="https://calc.by/calculators/standard/?style=0" scrolling="no" onload="this.focus();"></iframe>
+    </div>
+    <div>
+        <iframe id="standardCalc" src="https://calc.by/calculators/standard/?style=0" scrolling="no" frameborder="0" onload="this.focus();"></iframe>
     </div>
     <script>
         document.getElementById("btnClr").addEventListener("click", function() {

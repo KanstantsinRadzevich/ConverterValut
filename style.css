@@ -1,14 +1,15 @@
 #standardCalc {
-    width: 320px;
+    display: inline-block;
     height: 400px;
     opacity: 0.8;
-}
+   }
 
 #BYNq {
     font-style: italic;
 }
 
 #iDate {
+    display: inline-block;
     margin-bottom: 10px;
     padding: 4px 8px;
     background: rgba(245, 248, 35, 0.725); /* Цвет фона */
@@ -19,6 +20,7 @@
 }
 
 #btnGet, #btnClr {
+  display: inline-block;
   width: 140px;
   height: 45px;
   font-family: 'Georgia', serif;
@@ -39,12 +41,12 @@
 }
 
 .wrap {
-    height: 100%;
-    display: flex;
+    display:inline-block;
     align-items: left;
     justify-content: left;
     margin: 15px;
 }
+
 .button:hover {
     background-color: #2EE59D;
     box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
@@ -52,26 +54,26 @@
     transform: translateY(-5px);
 }
 
-.header {
-    color: #1a41f3;
-    width: 600px;
-    text-align: center;
-}
-
 .inputhead {
-    display: block;
-    margin-left: 10px; /* Расстояние между полем и текстом */
     padding: 5px;
-    line-height: 25px;
-    font-size: 20px;
+    font-size: 15px;
+    font-weight: bold;
     border-radius: 5px;
     cursor: pointer;
 }
 
+.container {
+    display: inline-block;
+    grid-template-columns: 25% 20% 10%;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    align-items: top;
+    justify-content: top;
+}
+
 input {
-    margin-left: 10px; /* Расстояние между полем и текстом */
+    display: inline-block;
     padding: 5px;
-    line-height: 150%;
     font-size: 15px;
     cursor: pointer;
     border-radius: 5px;
@@ -83,7 +85,6 @@ input {
 input:focus {
     margin-left: 10px; /* Расстояние между полем и текстом */
     padding: 5px;
-    line-height: 150%;
     background-color: #faed77;
     font-weight: bold;
     color: #dc143c;
@@ -97,15 +98,13 @@ input:hover {
     border-radius: 5px;
 }
 
-.greed-container {
-    display: grid;
-	grid-template-columns: 25% 20% 10%;
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
-    align-items: top;
-    justify-content: top;
+body, h1 {
+    background-color: rgba(247, 235, 221, 0.89);
+    position: relative;
+    text-align: center;
+    max-width: 500px;
 }
 
-body {
-    background-color: rgba(250, 226, 194, 0.89);
+h1 {
+    color: #1a41f3;
 }
