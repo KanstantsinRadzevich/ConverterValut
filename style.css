@@ -1,15 +1,21 @@
-#standardCalc {
-    display: inline-block;
-    width: -webkit-fill-available;
-    height: 400px;
-    opacity: 0.8;
-    margin-inline-start: 12%;
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-iframe {
-    margin: 0;
-    left: 50%;
-    margin-inline-start: 16%;
+.app {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f7ebdde3;
+}
+
+h1 {
+    color: #1a41f3;
 }
 
 #BYNq {
@@ -17,17 +23,15 @@ iframe {
 }
 
 #iDate {
-    display: inline-block;
-    margin-bottom: 10px;
-    margin-inline-start: 5%;
     background: rgba(245, 248, 35, 0.725); /* Цвет фона */
     border: 2px solid #b3b61d; /* Параметры рамки */
     border-radius: 5px;
     cursor: pointer;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+    margin: 15px;
 }
 
-#btnGet, #btnClr {
+button {
   display: inline-block;
   width: 140px;
   height: 45px;
@@ -45,27 +49,30 @@ iframe {
   outline: none;
   box-shadow: 0px 8px 15px #00000033;
   padding: 8px 10px;
-  margin-inline-end: 2%;
-  margin-inline-start: 8%;
+  margin: 15px;
 }  
 
-.button {
-    display:inline-block;
-    align-items: left;
-    justify-content: left;
-    margin: 5px;
-    text-align: center;
+span {
+    margin: 5px 0;
+}
+
+.btn {
+    display: flex;
+    justify-content: space-between;
 }
 
 .button:hover {
     background-color: #2EE59D;
     box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
-    color: #fff;
-    transform: translateY(-5px);
+    color: rgb(16, 10, 105);
+    transform: translateY(-3px);
     text-align: center;
 }
 
 .inputhead {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     padding: 5px;
     font-size: 15px;
     font-weight: bold;
@@ -75,7 +82,6 @@ iframe {
 }
 
 input {
-    display: inline-block;
     padding: 5px;
     font-size: 15px;
     border-radius: 5px;
@@ -83,11 +89,11 @@ input {
     background-color: initial;
     font-weight: initial;
     cursor: pointer;
+    width: 170px;
    
 }
 
 input:focus {
-    display: inline-block;
     padding: 5px;
     font-size: 15px;
     border-radius: 5px;
@@ -97,7 +103,6 @@ input:focus {
 }
 
 input:hover {
-    display: inline-block;
     background-color: #faed77;
     box-shadow: 0px 20px 30px rgba(46, 229, 157, 0.4);
     color: #e72323;
@@ -106,18 +111,7 @@ input:hover {
 }
 
 label, td {
-    display: inline-block;
+    display: block;
     text-align: center;
     margin: 2% auto;/* Расстояние между полем и текстом */
-}
-body {
-    background-color: rgba(247, 235, 221, 0.89);
-    position: relative;
-    max-width: 500px;
-    margin-left: 20px;/* Расстояние между полем и текстом */
-}
-
-h1 {
-    color: #1a41f3;
-    margin-inline-start: 15%;
 }
