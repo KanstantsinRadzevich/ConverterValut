@@ -18,10 +18,7 @@ function changeInputColor(){
 var uri = 'https://www.nbrb.by/API/';
 $(function() {
     $('#btnGet').click(function() {
-        var w = window.open('','','width=500,height=40');
-        w.document.write('Курсы обновлены на дату, указанную в календаре. Если ничего не выбрно - установлены курсы на сегодня!');
-        w.focus();
-        setTimeout(function() {w.close();}, 2000);
+        alert('Курсы обновлены на дату, указанную в календаре. Если ничего не выбрно - установлены курсы на сегодня!');
         rates2();    
     });    
 });    
