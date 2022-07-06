@@ -113,5 +113,4 @@ input:hover {
 label, td {
     display: block;
     text-align: center;
-    margin: 2% auto;/* Расстояние между полем и текстом */
 }
