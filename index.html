@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru" xmlns="http://www.w3.org/1999/xhtml">
 
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width">
@@ -13,66 +14,100 @@
 </head>
 
 <body>
-    <div class="app">   
-        <h1 class="header">Конвертер валют</h1>
-
-        <div id="nbrb">
-            <iframe src="https://www.nbrb.by/publications/wmastersd.asp?lnkcolor=Maroon&bgcolor=e6e6dc&brdcolor=dcdccd"
-            width=237 height=86 frameborder="1" scrolling="no">
-            </iframe>
-        </div>
-
-        <div class="container">
-            <div class="inputhead">
-                <label for="iDate">Выберите курс НБ РБ на дату:</label>
-                <span id="onDate"><input type="date" id="iDate" /></span>
-                <!--for JS id= onDate-->
+    <section class="page">
+        <section class="app">
+            <h1 class="header">Конвертер валют</h1>
+           
+            <div id="nbrb">
+                <iframe
+                    src="https://www.nbrb.by/publications/wmastersd.asp?lnkcolor=Maroon&bgcolor=e6e6dc&brdcolor=dcdccd"
+                    width=237 height=86 frameborder="1" scrolling="no">
+                </iframe>
             </div>
 
-            <div class="btn">
-                <button id="btnGet" class="button">Получить курсы</button>
-                <button id="btnClr" class="button">Очистить поля</button>
-            </div>
+            <div class="container">
+                <span class="inputhead">
+                    <label for="iDate">Выберите курс НБ РБ на дату:</label>
+                    <span>(по умолчанию - загружены на сегодня)</span>
+                    <span id="onDate"><input type="date" id="iDate" onchange="getRates()"/></span>
+                    <span id="msg"></span>
 
-            <table id="myTable">
-                <tr>
-                    <td>Сумма к переводу: "EUR" <input id="EUR" class='input' onkeyup="rates2('E')" onblur="backGroundColor('EUR')" ;></td>
-                </tr>
-                <tr>
-                    <td>Сумма к переводу: "USD" <input id="USD" class='input' onkeyup="rates2('U')" onblur="backGroundColor('USD')"></td>
-                </tr>
-                <tr>
-                    <td>Сумма к переводу: "RUB" <input id="RUB" class='input' onkeyup="rates2('R')" onblur="backGroundColor('RUB')"></td>
-                </tr>
-                <tr>
-                    <td>Сумма к переводу: "PLN" <input id="PLN" class='input' onkeyup="rates2('P')" onblur="backGroundColor('PLN')"></td>
-                </tr>
-                <tr>
-                    <td>Сумма к переводу: "KZT" <input id="KZT" class='input' onkeyup="rates2('K')" onblur="backGroundColor('KZT')"></td>
-                </tr>
-                <tr>
-                    <td>Сумма к переводу: "UZS" <input id="UZS" class='input' onkeyup="rates2('UZ')" onblur="backGroundColor('UZS')"></td>
-                </tr>
-                <tr id="BYNq">
-                    <td>Сумма к переводу: "BYN" <input id="BYN" class='input' onkeyup="rates2('B')" onblur="backGroundColor('BYN')"></td>
-                </tr>
-            </table>
-        </div>
-    </div>    
-    <script>
-        document.getElementById("btnClr").addEventListener("click", function () {
-            document.getElementById('EUR').value = '';
-            document.getElementById('USD').value = '';
-            document.getElementById('PLN').value = '';
-            document.getElementById('RUB').value = '';
-            document.getElementById('KZT').value = '';
-            document.getElementById('UZS').value = '';
-            document.getElementById('BYN').value = '';
-            document.getElementById('iDate').value = '';
-            changeInputColor();
-           alert('Значения курсов установлены -На сегодня')
-        });
-    </script>
+                    <!--for JS id= onDate-->
+                </div>
+
+                
+                <table id="myTable">
+                    <tr>
+                        <td>Сумма к переводу: "EUR" <input id="EUR" class='input' onkeyup="crossCur('E')"
+                                onblur="backGroundColor('EUR')" ;></td>
+                    </tr>
+                    <tr>
+                        <td>Сумма к переводу: "USD" <input id="USD" class='input' onkeyup="crossCur('U')"
+                                onblur="backGroundColor('USD')"></td>
+                    </tr>
+                    <tr>
+                        <td>Сумма к переводу: "RUB" <input id="RUB" class='input' onkeyup="crossCur('R')"
+                                onblur="backGroundColor('RUB')"></td>
+                    </tr>
+                    <tr>
+                        <td>Сумма к переводу: "PLN" <input id="PLN" class='input' onkeyup="crossCur('P')"
+                                onblur="backGroundColor('PLN')"></td>
+                    </tr>
+                    <tr>
+                        <td>Сумма к переводу: "KZT" <input id="KZT" class='input' onkeyup="crossCur('K')"
+                                onblur="backGroundColor('KZT')"></td>
+                    </tr>
+                    <tr id="BYNq">
+                        <td>Сумма к переводу: "BYN" <input id="BYN" class='input' onkeyup="crossCur('B')"
+                            onblur="backGroundColor('BYN')"></td>
+                        </tr>
+                    </table>
+                    <div class="btn">
+                        <!-- <button id="btnGet" class="button"onclick="rates2()">Получить курсы</button> -->
+                        <button id="btnClr" class="button" onclick="clearRates()">Очистить поля</button>
+                    </div>
+            </div>
+        </section>
+        <form>
+            <h3>
+                Рассчет остатка
+            </h3>
+            <div>
+                <label for="in">Входящая ставка</label>
+                <input id="in" type="text" onchange="displayTransport()">
+            </div>
+            <section class="transports" disabled>
+                <div>
+                    <label for="transport1">Перевозчик 1</label>
+                    <input class="transport" id="transport1" type="text" oninput="getSaldo()">
+                </div>
+                <div>
+                    <label for="transport2">Перевозчик 2</label>
+                    <input class="transport" id="transport2" type="text" oninput="getSaldo()">
+                </div>
+                <div>
+                    <label for="transport3">Перевозчик 3</label>
+                    <input class="transport" id="transport3" type="text" oninput="getSaldo()">
+                </div>
+                <div>
+                    <label for="transport4">Перевозчик 4</label>
+                    <input class="transport" id="transport4" type="text" oninput="getSaldo()">
+                </div>
+                <div>
+                    <label for="transport5">Перевозчик 5</label>
+                    <input class="transport" id="transport5" type="text" oninput="getSaldo()">
+                </div>
+                <div class="total">
+                    <label for="saldo">Разница</label>
+                    <input id="saldo" type="text">
+                </div>
+                <div>
+                    <button type="reset" class="clearTransports" onclick="clearInp()">Очистить</button>
+                </div>
+            </section>
+        </form>
+    </section>
+
 </body>
 
 </html>
